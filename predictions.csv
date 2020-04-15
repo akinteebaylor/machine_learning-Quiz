@@ -1,4 +1,4 @@
-animal_name,Predicted
+animal_name,prediction
 octopus,Invertebrate
 opossum,Mammal
 oryx,Mammal
@@ -18,15 +18,15 @@ pussycat,Mammal
 raccoon,Mammal
 reindeer,Mammal
 rhea,Bird
-scorpion,Bug
+scorpion,Invertebrate
 seahorse,Fish
 seal,Mammal
 sealion,Mammal
-seasnake,Fish
+seasnake,Reptile
 seawasp,Invertebrate
 skimmer,Bird
 skua,Bird
-slowworm,Fish
+slowworm,Reptile
 slug,Invertebrate
 sole,Fish
 sparrow,Bird

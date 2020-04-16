@@ -1,7 +1,7 @@
 from sklearn.neighbors import KNeighborsClassifier
 import pandas as pd
 import numpy as np
-pd.set_option('display.max_columns',None)
+pd.set_option('display.max_columns',None)# helps me view the complete dataframe
 
 # creates dataframe from Animal Clas data
 Animal_data_df = pd.read_csv("animal_classes.csv")

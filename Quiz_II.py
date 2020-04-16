@@ -11,7 +11,7 @@ for i, j in Animal_data_df.iterrows():
         l = k.strip()
         Animal_dict[l] = (j[0], j[2])
 class_details = {i: j for i, j in Animal_dict.values()} #dictiomnary comprehnsion
-#This next python class module is not needed I could have worked through dictionaries but I fill I need to take every oportunity to practice python classes. I struggled with them while working through my Py-game project
+#This next python class module is not needed I could have worked through dictionaries but I feel I need to take every oportunity to practice python classes. I struggled with them while working through my Py-game project
 class Animal:
     def __init__(self, name):
         self.name = name
@@ -20,7 +20,7 @@ class Animal:
     def return_class_type(self,number):
         self.returned_class = class_details[number]
         return self.returned_class
-#The class module above is not needed I could have worked through the dictionary I created but I fill I need to take every oportunity to practice python classes. I noticed a gap while doing my py_game project
+#The class module above is not needed I could have worked through the dictionary I created but I feel I need to take every oportunity to practice python classes. I noticed a gap while doing my py_game project
 #--Read Train data
 Animal_data_train = np.genfromtxt('animals_train.csv', delimiter=',', skip_header=1) #read CSV into numpy array
 x_train, y_train = Animal_data_train[0:101, 0:16],  (Animal_data_train[0:101, 16]) #split data into X values and Y values

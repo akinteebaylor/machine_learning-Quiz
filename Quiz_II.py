@@ -1,5 +1,4 @@
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import confusion_matrix
 import pandas as pd
 import numpy as np
 pd.set_option('display.max_columns',None)
@@ -12,19 +11,15 @@ for i, j in Animal_data_df.iterrows():
         l = k.strip()
         Animal_dict[l] = (j[0], j[2])
 class_details = {i: j for i, j in Animal_dict.values()} #dictiomnary comprehnsion
-#This next class module is not needed I could have worked through dictionaries but I fill I need to take every oportunity to practice python classes. I struggled with them while working through my Py-game project
+#This next python class module is not needed I could have worked through dictionaries but I fill I need to take every oportunity to practice python classes. I struggled with them while working through my Py-game project
 class Animal:
     def __init__(self, name):
         self.name = name
         self.class_number = Animal_dict[self.name][0]
-        self.class_type = class_details[self._class_number]
-    @property
-    def class_number(self):
-        return self._class_number
-    @class_number.setter
-    def class_number(self, number):
-        self._class_number = number
         self.class_type = class_details[self.class_number]
+    def return_class_type(self,number):
+        self.returned_class = class_details[number]
+        return self.returned_class
 #The class module above is not needed I could have worked through the dictionary I created but I fill I need to take every oportunity to practice python classes. I noticed a gap while doing my py_game project
 #--Read Train data
 Animal_data_train = np.genfromtxt('animals_train.csv', delimiter=',', skip_header=1) #read CSV into numpy array
@@ -41,14 +36,11 @@ knn.fit(X=x_train, y=y_train)
 #Validate the model with test data
 predicted = knn.predict(X=x_test)
 expected = y_test #These are the expected class_numbers
-confusion = confusion_matrix (y_true=expected, y_pred=predicted) 
-print(confusion)
 #get the animal name for these class_numbers
-predicted_class_list =[Animal(animals[i]).class_type for i in range(len(predicted))]
+predicted_class_list = [Animal(animals[i]).return_class_type(i) for i in predicted]
 #Create a dataframe that has the animal name and the predicted class_type
 prediction = pd.Series(predicted_class_list, name="prediction") #cobnverts the predicted class_type to a panda series
 Results = pd.concat([animals, prediction], axis=1) #concatenate the prediction panda series with the animals series to get a result data frame.
 #write result data frame to CSV FILE
 Results.to_csv('predictions.csv', sep=',', index=False)
-
 

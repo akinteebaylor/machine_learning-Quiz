@@ -28,7 +28,9 @@ knn.fit(X=x_train, y=y_train)
 predicted = knn.predict(X=x_test)
 expected = y_test
 predicted_class_list = [class_details[i] for i in predicted]
+print(class_details[predicted[19]])
 prediction = pd.Series(predicted_class_list, name="Predicted")
 Results = pd.concat([animals, prediction], axis=1)
 Results.to_csv('predictions.csv', sep=',', index=False)
 
+print(Animal_dict['scorpion'])
